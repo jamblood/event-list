@@ -1,0 +1,112 @@
+// assets/scss/main.scss
+
+/* ==============================================
+   Future Events Plugin Styles
+   Version: 1.2.0
+   ============================================== */
+
+// Core variables and mixins
+@import "./variables"; // Add './' prefix
+@import "./mixins";
+@import "./modal";
+
+/* Base Styles
+----------------------------------------------- */
+.future-events-container {
+  @apply max-w-4xl mx-auto px-4;
+
+  .future-events-title {
+    @apply text-2xl font-bold mb-6 text-gray-800;
+  }
+}
+
+/* Events List Component
+----------------------------------------------- */
+.future-events-list {
+  @apply space-y-4;
+
+  &-item {
+    @apply bg-white p-4 rounded-lg shadow-sm border border-gray-200 transition-all duration-200;
+
+    &:hover {
+      @apply shadow-md border-gray-300;
+      transform: translateY(-2px);
+    }
+
+    &.has-registration {
+      @apply border-l-4;
+
+      &.status-accepted {
+        @apply border-green-500;
+      }
+      &.status-declined {
+        @apply border-red-500;
+      }
+    }
+  }
+
+  &-meta {
+    @apply flex items-center justify-between mb-3;
+
+    .event-date {
+      @apply text-sm font-medium text-gray-600;
+    }
+
+    .event-status {
+      @apply px-2 py-1 rounded-full text-xs font-semibold uppercase;
+
+      &[data-status="accepted"] {
+        @apply bg-green-100 text-green-800;
+      }
+      &[data-status="declined"] {
+        @apply bg-red-100 text-red-800;
+      }
+    }
+  }
+
+  &-actions {
+    @apply flex gap-2 mt-4;
+
+    button {
+      @apply px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150;
+
+      &:disabled {
+        @apply opacity-50 cursor-not-allowed;
+      }
+    }
+
+    .btn-accept {
+      @apply bg-green-600 text-white hover:bg-green-700;
+    }
+
+    .btn-decline {
+      @apply bg-red-600 text-white hover:bg-red-700;
+    }
+  }
+}
+
+/* Loading States
+----------------------------------------------- */
+.future-events-loading {
+  @apply relative opacity-70 pointer-events-none;
+
+  &::after {
+    content: "";
+    @apply block w-6 h-6 border-2 border-gray-300 border-t-transparent rounded-full absolute top-1/2 left-1/2 -ml-3 -mt-3 animate-spin;
+  }
+}
+
+/* Responsive Adjustments
+----------------------------------------------- */
+@include screen(sm) {
+  .future-events-list-item {
+    @apply p-6;
+  }
+
+  .future-events-list-meta {
+    @apply mb-4;
+  }
+}
+
+// Import modal styles
+@import "modal";

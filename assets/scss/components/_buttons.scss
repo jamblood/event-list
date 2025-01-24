@@ -1,0 +1,26 @@
+.accept-event,
+.decline-event {
+  margin-left: map-get($spacing, md); // Using map key
+  padding: map-get($spacing, sm) map-get($spacing, md);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  @include button-transition;
+  @include button-hover-effect;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+// Individual button colors
+.accept-event {
+  background-color: map-get($colors, success);
+  color: white;
+}
+
+.decline-event {
+  background-color: map-get($colors, danger);
+  color: white;
+}

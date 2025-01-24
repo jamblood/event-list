@@ -1,0 +1,19 @@
+// assets/scss/_mixins.scss
+
+@mixin screen($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+@mixin focus-ring {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+}
+
+@mixin status-badge($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: map-get($spacing-map, "sm") map-get($spacing-map, "md");
+  border-radius: 9999px;
+}

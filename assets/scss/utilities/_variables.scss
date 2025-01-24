@@ -1,0 +1,27 @@
+// assets/scss/_variables.scss
+
+// Colors
+$primary: #3b82f6;
+$success: #22c55e;
+$danger: #ef4444;
+$text-primary: #1f2937;
+$text-secondary: #6b7280;
+
+// Spacing
+$spacing-unit: 1rem;
+$spacing-map: (
+  "sm": $spacing-unit * 0.5,
+  "md": $spacing-unit,
+  "lg": $spacing-unit * 1.5,
+);
+
+// Breakpoints
+$breakpoints: (
+  "sm": 640px,
+  "md": 768px,
+  "lg": 1024px,
+);
+
+// Transitions
+$transition-duration: 200ms;
+$transition-timing: ease-in-out;
